@@ -5,6 +5,11 @@
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
 
+plugins {
+  id 'com.gradle.build-scan' version '1.14'
+  id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -20,7 +25,18 @@ repositories {
 }
 
 dependencies {
-// https://mvnrepository.com/artifact/org.apache.poi/poi
+  // https://mvnrepository.com/artifact/org.apache.poi/poi
   compile 'org.apache.poi:poi:3.13'
+  // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+  compile 'org.apache.poi:poi-ooxml:3.13'
+  // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+  compile 'org.apache.poi:poi-ooxml-schemas:3.13'
+  compile("org.apache.commons:commons-lang3:3.7")
+  compile("ch.qos.logback:logback-classic:1.2.3+")
+  compileOnly("org.projectlombok:lombok")
+
+  //Test
+  testCompile 'junit:junit:4.12+'
+
 }
 
